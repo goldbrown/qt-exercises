@@ -4,8 +4,13 @@
 #include <QString>
 #include <QPushButton>
 #include <QDebug>
+#include <QMap>
+#include <QtAlgorithms>
+#include <QtGlobal>
 
 void qtIterator();
+void qtMapIterator();
+void basicFunction();
 
 int main(int argc, char *argv[])
 {
@@ -48,8 +53,61 @@ int main(int argc, char *argv[])
     // qt iterator
     qtIterator();
 
+    // map iterator
+    qtMapIterator();
+
+    basicFunction();
+
 
     return 0;
+}
+
+void mySwap(double &a, double &b)
+{
+    double tmp = a;
+    a = b;
+    b = tmp;
+}
+
+void basicFunction()
+{
+    double a = -1.2, b = 2.6;
+    double c = 123, d = 456;
+    qInfo() << "abs(a)" << ":" << qAbs(a);
+    qInfo() << "max(a,b)" << ":" << qMax(a, b);
+    qInfo() << "round(a)" << ":" << qRound(a);
+    qSwap(a, b);
+    qInfo() << "a and b is:" << a << " " << b;
+
+    mySwap(c, d);
+    qInfo() << "c and d is:" << c << " " << d;
+
+}
+
+void qtMapIterator()
+{
+    QMap<QString, QString> map;
+    map.insert("beijing", "111");
+    map.insert("shanghai", "222");
+    map.insert("guangzhou", "333");
+
+    QMapIterator<QString, QString> iter(map);
+    for(;iter.hasNext();) {
+        qInfo() << " " << iter.peekNext().key() << ":" << iter.peekNext().value();
+        iter.next();
+    }
+
+    // modify
+    QMutableMapIterator<QString, QString> mi(map);
+    if (mi.findNext("111")) {
+        mi.setValue("010");
+    }
+    QMapIterator<QString, QString> iter2(map);
+    for(;iter2.hasNext();) {
+        qInfo() << " " << iter2.peekNext().key() << ":" << iter2.peekNext().value();
+        iter2.next();
+    }
+
 }
 
 void qtIterator()
