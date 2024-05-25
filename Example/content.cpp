@@ -6,7 +6,7 @@ Content::Content(QWidget *parent)
 {
     // three pages
     stack = new QStackedWidget();
-    stack->setFrameStyle(QFrame::Panel|QFrame::Raised);
+    stack->setFrameStyle(QFrame::Panel|QFrame::Sunken);
     BaseInfo = new class BaseInfo();
     Contact = new class Contact();
     Detail = new class Detail();
