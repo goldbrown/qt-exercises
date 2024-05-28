@@ -1,11 +1,11 @@
-#include "drawer.h"
+#include "mydrawer.h"
 
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Drawer w;
+    MyDrawer w;
     w.show();
     return a.exec();
 }
