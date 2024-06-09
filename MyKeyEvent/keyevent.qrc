@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/new/prefix1"/>
+    <qresource prefix="/">
+        <file>../../../Documents/Work/Documents/qt_books_source_code/CH11/CH1102/image/image.png</file>
+        <file>image.png</file>
+    </qresource>
+</RCC>

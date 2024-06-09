@@ -1,4 +1,5 @@
 #include "mouseevent.h"
+#include <QMessageBox>
 
 MouseEvent::MouseEvent(QWidget *parent)
     : QMainWindow(parent)
@@ -51,6 +52,6 @@ void MouseEvent::mouseReleaseEvent(QMouseEvent *e)
 
 void MouseEvent::mouseDoubleClickEvent(QMouseEvent *e)
 {
-
+    QMessageBox::information(0, "double click event", "double click event");
 }
 
